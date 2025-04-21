@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Personal Page</title>
+    <link rel="stylesheet" href="index.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+<script type="text/javascript">
+  // Init using the correct public key
+  emailjs.init("HQw-hf5WQ9ukbAdUV");
+
+  function sendMail() {
+    let parms = {
+      name : document.getElementById("name").value,
+      email : document.getElementById("email").value,
+      message : document.getElementById("message").value,
+    };
+
+    emailjs.send("service_9da1igi", "template_vg0r1ua", parms)
+      .then(function(response) {
+        alert("Email sent successfully!");
+      }, function(error) {
+        alert("Failed to send email: " + JSON.stringify(error));
+        console.error("EmailJS Error:", error);
+      });
+  }
+</script>
+
+    
+</head>
+<body>
+    
+
+<header class="header">
+  <a href="#" class="logo">LOUISE.</a>
+  <nav class="navbar" id="navLinks">
+    <a href="#myself">Myself</a>
+    <a href="#about">About</a>
+    <a href="#main">Main</a>
+  </nav>
+  <div class="burger" id="burger">☰</div>
+</header>
+
+<!-- Main Section -->
+<section id="main" class="main">
+    <div class="row">
+        <div class="column">
+            <img src="img/me.png" alt="me">
+        </div>
+        <div class="column">
+            <h1>Louise Gabrielle D. Quioyo</h1>
+            <h3>Third year IT student</h3>  
+        </div>
+    </div>
+</section>
+
+<section class="home" id="myself">
+    <div class="home-content">
+      <h1>So, Who am I?</h1><br><br>
+      <a> A 22 years old IT student, turning 23 this 3rd of November 2025.
+          My personality depends on who I am with. Sometimes I am loud and funny and sometimes not. I hate being late because I hate  
+          the feeling of rushing everything amd that would surely ruin my day. I hate math but I love counting money :p </a>
+    </div>
+ </section>
+
+<!-- About Me Section -->
+<section class="about_me" id="about">
+    <div class="pics">
+      <div class="gallery">
+          <img src="img/siblings.jpg">
+        </a>
+        <div class="descs">This is my other siblings, Jinggoy is the smallest and Nuggets is the bigger one. Nuggets is the shy, protective one. 
+          He is protective to us and our house, he is also scared of EVERYTHING even flies. He always smells good. While, Jinggoy is 
+          crazy one, he runs all the time, bites everyone and everything around the house. He loves everyone, even strangers. He can be easily get kidnapped 
+          because he loves everyone.
+        </div>
+      </div>
+    </div>  
+    <div class="pics">
+      <div class="gallery">
+          <img src="img/family.jpg">
+        </a>
+        <div class="desc">We are a family of 6 (we have no complete picture yet). My mom loves to make our food spicy because it is boring
+          for us if the food is plain. My mom loves to watch k-drama series and movies while, my dad loves watching Formula 1
+          he loves cars and knows most of the cars and motors that I ask.
+        </div>
+      </div>
+    </div>
+    
+    <div class="pics">
+      <div class="gallery">
+          <img src="img/babe.jpg">
+        </a>
+        <div class="desc">Denniel is my boyfriend. He is smart, kind and has a gentle soul. He loves to play
+          online games and his favorite at the moment is CoC (Clash of Clans). He is extrovert, He loves solving math but hates problem solving, logic questions is his weakness. He is dark, tall and
+        handsome!! XD</div>
+      </div>
+    </div> 
+    <div class="pics">
+      <div class="gallery">
+          <img src="img/hp.jpg">
+        </a>
+        <div class="desc">Ron Bilius Weasley is my favorite character in the Harry Potter movie, 
+          he is the reason why I watched it. I also love Snape in the movie, I like his nonchalant personality
+        mostly when it comes to this golden trio. Watching this movie calms me and questions my life that why do this 
+      schools not exist in real life T^T </div>
+      </div>
+    </div>
+  </section>
+<!-- Contact Section -->
+<section class="contact" id="contact">
+  <div class="contact-content">
+    <h1>Contact Me</h1>
+    <form id="contact-form">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" rows="4" required></textarea>
+
+      <button type="submit" class="submit-btn">Send</button>
+
+    </form>
+  </div>
+</section>
+
+<script type="text/javascript">
+document.getElementById("contact-form").addEventListener("submit", function(e) {
+  e.preventDefault(); // stops page reload
+
+  let parms = {
+    name : document.getElementById("name").value,
+    email : document.getElementById("email").value,
+    message : document.getElementById("message").value,
+  }
+
+  emailjs.send("service_9da1igi", "template_vg0r1ua", parms)
+    .then(() => alert("Email sent successfully!"))
+    .catch((error) => alert("Failed to send email: " + JSON.stringify(error)));
+});
+document.getElementById("burger").addEventListener("click", function () {
+  document.getElementById("navLinks").classList.toggle("active");
+});
+
+</script>
+
+</body>
+</html>
